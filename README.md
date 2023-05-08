@@ -14,11 +14,16 @@ In addition the solution allows for relative positions of skin elements, and aut
 
 ## Status
 This project is work in progress.
+A first proof of concept skin is available in https://github.com/dream-alpha/Shadow-FHD.
 
 Tools available:
 - xmlscale:
 ```
     xmlscale <scale> <input-file> <outpout-file>
+```
+- xmlmerge:
+```
+    xmlmerge <input-file 1> <input-file 2> <outpout-file>
 ```
 - svgscale (only works on pc, as librsvg2-bin is not available on the box):
 ```
