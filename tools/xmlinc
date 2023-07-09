@@ -1,0 +1,11 @@
+#!/bin/bash
+srcfile="$1"
+dstdir="$2"
+cmndir="$3"
+
+if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ]; then
+	echo "Usage: $0 <source file> <destination dir> <common dir>"
+else
+	echo resolving xmlincs of $srcfile to $dstdir with common dir: $cmndir
+	python "$(dirname "$0")"/src/xmlinc.py -i $srcfile -o $dstdir -c $cmndir
+fi

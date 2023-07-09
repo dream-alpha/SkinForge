@@ -9,7 +9,7 @@ If you have a set of plugins you probably would like to have the same look and f
 
 ## Objective
 I came up with an object oriented approach that sort of provides data encapsulation, inheritance, and reuse of skin elements across multiple skin screens and plugins.
-In addition the solution allows for relative positions of skin elements, and automatic scaling of skin elements or complete skins.
+In addition the solution allows for relative positions of skin elements, usage of global variables, and automatic scaling of skin elements or complete skins.
 
 
 ## Status
@@ -25,6 +25,10 @@ Tools available:
 ```
     xmlmerge <input-file 1> <input-file 2> <outpout-file>
 ```
+- xmlinc:
+```
+    xmlinc <xml-source_file> <destination-dir> <common-files-dir>
+```
 - svgscale (only works on pc, as librsvg2-bin is not available on the box):
 ```
     svgscale <scale> <svg-file>
@@ -39,20 +43,37 @@ Tools available:
 No package available, just clone the git: "git clone git@github.com:dream-alpha/SkinForge.git"
 
 
+## Example for skin includes with parameter(s)
+main file: Example.xml
+
+    <skin>
+        <screen>
+            <xmlinc name="test" $source="title"/>
+        </sreen>
+    </skin>
+
+include file: test.xmlinc
+
+    <widget ... source=$source .../>
+
+in the include file source will be replaced by the $source parameter in Example.xml which results in:
+
+    <widget ... source="title" .../>
+
 ## Example for relative skin includes
 main file: Example.xml
 
     <skin>
         <screen>
-            <xmlinc name=buttons position="100,200" />
+            <xmlinc name=buttons position="100,200"/>
         </screen>
     </skin>
 
 include file: buttons.xmlinc
 
-    <ePixmap pixmap="Default-FHD/skin_default/buttons/red.svg" position="0,0" size="300,70" />
-    <ePixmap pixmap="Default-FHD/skin_default/buttons/green.svg" position="300,0" size="300,70" />
-    <ePixmap pixmap="Default-FHD/skin_default/buttons/yellow.svg" position="600,0" size="300,70" />
-    <ePixmap pixmap="Default-FHD/skin_default/buttons/blue.svg" position="900,0" size="300,70" />
+    <ePixmap pixmap="Default-FHD/skin_default/buttons/red.svg" position="0,0" size="300,70"/>
+    <ePixmap pixmap="Default-FHD/skin_default/buttons/green.svg" position="300,0" size="300,70"/>
+    <ePixmap pixmap="Default-FHD/skin_default/buttons/yellow.svg" position="600,0" size="300,70"/>
+    <ePixmap pixmap="Default-FHD/skin_default/buttons/blue.svg" position="900,0" size="300,70"/>
 
 The position of the red button will be: "100,200", the position of the green button will be "400,200".

@@ -141,7 +141,7 @@ class XMLInclude():
 		tags = {}
 		for i, word in enumerate(words):
 			if word == "xmlinc":
-				tags[word] = word == "xmlinc"
+				tags[word] = True
 			elif word == "=":
 				if words[i - 1] in ["position", "size"] and words[i + 1] == '"':
 					tags[words[i - 1]] = "%s,%s" % (words[i + 2], words[i + 4])
