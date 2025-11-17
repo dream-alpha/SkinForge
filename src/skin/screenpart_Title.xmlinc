@@ -1,0 +1,2 @@
+	<ePixmap pixmap="$menu_pixmap" position="25,15" size="70,70"/>
+	<widget font="Bold;32" noWrap="1" position="130,30" render="Label" size="eval($screen_width-175),40" source="$source" transparent="1"/>
