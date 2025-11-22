@@ -1,5 +1,5 @@
 ﻿#!/usr/bin/python
-# encoding: utf-8
+# coding=utf-8
 #
 # Copyright (C) 2018-2025 by dream-alpha
 #

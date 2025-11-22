@@ -1,5 +1,5 @@
 ﻿#!/usr/bin/python
-# encoding: utf-8
+# coding=utf-8
 #
 # Copyright (C) 2018-2025 by dream-alpha
 #
@@ -207,14 +207,14 @@ class XMLInclude():
                         self.checkValue(words[i + 2])
                         if words[i + 3] == ",":
                             self.checkValue(words[i + 4])
-                            tags[words[i - 1]] = "%s,%s" % (words[i + 2], words[i + 4])
+                            tags[words[i - 1]] = f"{words[i + 2]},{words[i + 4]}"
                         else:
-                            tags[words[i - 1]] = "%s" % words[i + 2]
+                            tags[words[i - 1]] = f"{words[i + 2]}"
                     elif words[i - 1] in ["font"]:
                         # print("words: %s", words)
                         if words[i + 3] == ";":
                             self.checkValue(words[i + 4])
-                            tags[words[i - 1]] = "%s;%s" % (words[i + 2], words[i + 4])
+                            tags[words[i - 1]] = f"{words[i + 2]};{words[i + 4]}"
                     elif words[i - 1] in ["position"]:
                         self.checkValue(words[i + 2])
                         self.checkValue(words[i + 4])

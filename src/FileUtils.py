@@ -1,22 +1,6 @@
-#!/usr/bin/python
 # coding=utf-8
-#
 # Copyright (C) 2018-2025 by dream-alpha
-#
-# In case of reuse of this source code please do not remove this copyright.
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# For more information on the GNU General Public License see:
-# <http://www.gnu.org/licenses/>.
+# License: GNU General Public License v3.0 (see LICENSE file for details)
 
 
 import os
@@ -48,7 +32,7 @@ def readFile(path):
             with open(path, "r", encoding="utf-8") as f:
                 data = f.read()
         else:
-            with open(path, "r") as f:
+            with open(path, "r") as f:  # pylint: disable=unspecified-encoding
                 data = f.read()
     except Exception as e:
         logger.info("path: %s, exception: %s", path, e)
@@ -62,7 +46,7 @@ def writeFile(path, data):
             with open(path, "w", encoding="utf-8") as f:
                 f.write(data)
         else:
-            with open(path, "w") as f:
+            with open(path, "w") as f:  # pylint: disable=unspecified-encoding
                 f.write(data)
     except Exception as e:
         logger.error("path: %s, exception: %s", path, e)
